@@ -22,12 +22,18 @@ This aligns with **reward modeling** and **reinforcement learning from human fee
 
 ### 🔹 1. Prompt-based Preference Modeling  
 - Designed a **discriminator prompt** comparing two responses across **5 criteria**:  
-  * Relevance  
-  * Accuracy  
-  * Clarity  
-  * Logical Flow  
-  * Responsiveness  
-- The model outputs votes → `A`, `B`, `AB`, or `NA`.  
+The discriminator evaluates responses on the following dimensions:
+
+1. **Relevance** – Does the response directly address the query without digression?  
+2. **Accuracy** – Are the facts correct and free from hallucinations?  
+3. **Clarity** – Is the response easy to understand with clear language?  
+4. **Logical Flow** – Does reasoning progress in a structured, step-by-step manner?  
+5. **Responsiveness** – Does it fully address all parts of the user’s query?  
+6. **Conciseness** – Is the response free of unnecessary verbosity?  
+7. **Creativity & Insight** – Does it provide unique perspectives, analogies, or added value?  
+8. **Fairness & Neutrality** – Is the answer unbiased, neutral, and appropriate?  
+9. **Engagement & Style** – Is the tone engaging and suited to the query context?  
+10. **Completeness** – Does it fully solve the problem without leaving gaps?  
 - Aggregated votes are converted to **softmax probabilities** for (A, B, Tie).  
 
 ### 🔹 2. Synthetic Data Augmentation  
